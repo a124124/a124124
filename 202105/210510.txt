@@ -1,0 +1,9 @@
+210510
+public static void main(String[] args) {
+int num1 = 0; // 정수이기 때문에 int로 한다.
+String name = 이름;
+
+System.out.println("i\t j\t d");  // \t 는 탭
+
+// %d (정수) %f(실수) %b(불린,true or false) %x (16진수) %c (문자 1개) %s (문자열)
+	

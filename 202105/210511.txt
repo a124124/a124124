@@ -1,0 +1,18 @@
+입력받아야 할 때
+
+
+Scanner scanner = new Scanner(System.in) ;
+
+불러오기
+
+int i = scanner.nextInt();      // 입력 대기 명령문
+
+if 문
+if(조건식1) {
+	조건식1이 참일 때 실행할 명령문;
+}else if(조건식2){
+	조건식1이 거짓이고 조건식2가 참일 때 실행할 명령문;
+}else{
+	위의 조건식 둘 다 참이 아닐 때 실행할 명령문;
+}
+
