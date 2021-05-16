@@ -1,0 +1,16 @@
+배열 만들기.
+int[] iArr = {1, 2, 3, 4, 5}
+
+한번 선언하면 바꿀수 없음.
+
+랜덤한 숫자 받아오기.
+Math.random();
+
+
+메소드 만들기.
+
+public int sum(int from, int to)
+
+public String evenOdd(int value) {
+		return value % 2 == 0 ? "짝수" : "홀수";
+}
