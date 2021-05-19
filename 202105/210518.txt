@@ -1,0 +1,65 @@
+toString() 을 내가 원하는 형식으로 Override 해서 내가 원하는 형식으로 표시할수 있다.
+
+	@Override
+	public String toString() {
+		return String.format("%s(%s) 님, 잔액 : %d 원\n", ownerName, 			accountNo, balance);
+	}
+
+toString() 오버라이드 앞으로 많이 사용함
+
+
+
+equals 도 object 클래스에 있는 equals 를 override 해서 원하는 형식으로 바꿔야 작동한다.
+
+if(a1.equals(a2)) {
+	System.out.println("a1 객체와 a2 객체는 같다.");
+	}else {
+	System.out.println("a1 객체와 a2 객체는 다르다.");
+}
+
+
+들여쓰기 항상 하고 Ctrl+Shift+F 는 들여쓰기를 해준다.
+하지만 습관적으로 직접 하자.
+
+
+	public void pay(String cardNo, int money) {
+		if(this.cardNo.equals(cardNo)) {
+			if(getBalance() >= money) {
+				setBalance(getBalance() - money);
+
+	}
+
+set ( get - money )  이 된다.
+
+public final class Classname // 상속 불가.
+public final void stop() { // 오버라이드 불가.
+
+public abstract void kimchi();  // 추상 메소드
+추상클래스는 반드시 Override를 해야한다.
+강제성을 띈다.
+public abstract class HeadQuarterStore { }
+추상 메소드가 하나라도 있으면 클래스앞에 abstract 를 붙여줘야한다.
+
+abstract(추상) 클래스를 만들면 객체 생성이 불가능하다.
+
+abstract(추상) 메소드가 있는 클래스를 상속받으면
+
+반드시 Override 를 하거나 abstract 클래스로 만들어야한다.
+
+<예제2> 정규직 3명과 아르바이트생2명인 조그만 계열사의 월급명세서 출력 프로그램을 구현하시오.
+Employee : name, computePay(추상),computeIncentive(월급이 300이상이면 10% 상여. final메소드)
+SalaryEmployee : name, annalSalary, computePay(),computeIncentive()
+HourlyEmployee : name, hoursWorked, moneyPerHour, computePay(),computeIncentive()
+Employee[] employees = {
+				new SalaryEmployee("홍길동", 28000000),//정직원
+				new SalaryEmployee("박직원", 70000000),//정직원
+				new SalaryEmployee("윤사원", 24000000),//정직원
+				new HourlyEmployee("이알바", 100,8500),//아르바이트생
+				new HourlyEmployee("신알바", 120,9500)};//아르바이트생
+결과 : 월급명세서
+      성함 : 홍길동
+      월급 : …
+      상여 : … 
+
+
+예제 집에서 꼭 해볼것.

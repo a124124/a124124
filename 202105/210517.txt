@@ -1,0 +1,68 @@
+객체지향의 핵심적인 요소는 상속과 추상화(일반화)이다.
+
+부모함수에서 protected 로 하면 상속받은 클래스에서 사용할 수 있다.
+
+private int i ;
+protected int i;
+
+하지만 보통 get, set을 사용한다
+
+
+상속받을 때 원하지 않는 메소드라고해도 상속을 안받을수 없다.
+
+메소드를 덮어씌우는것을 overriding(오버라이딩 = 재정의 )  이라고 한다.
+
+S s = new S();        
+A a = new A();
+S aa = new A();
+
+가 가능하다.
+
+변수들의 타입을 일치시키는것도 가능하다.
+
+java.lang.Object  최상위 부모.
+
+오버라이딩 했을 때 구분하기 위해 @override (어노테이션) 라고 입력해준다.
+
+	ParentClass cObj2 = new ChildClass(4);
+	cObj2.method1();
+	cObj2.method2();
+	//cObj2.method3(); 타입 때문에 코딩이 안됨.
+	((ChildClass)cObj2).method3(); // (명시적인 형변환) 그래서 타입을 바꿔주고 실행을한다.
+
+
+// this() = 현 클래스의 생성자 함수
+// tihs. = 내 객체의
+
+
+super(name, character); //부모단의 생성자 호출, 매개변수 있는 부모단의 생성자 super()는 항상 첫 명령어로 호출하여야함.
+
+확장 for문을 많이 사용해볼것.
+
+평가문항 : 클래스의 상속과 오버라이딩을 종합하여 다음과 같이 출력되는 프로그램을 구현해 보자. 
+[요구사항]
+(1) Person클래스의 데이터와 메소드 : id, name / print(), 필요시엔 getter와 setter 메소드 추가
+(2) Student 클래스의 데이터와 메소드 : id, name, ban / print(), 필요시엔 getter와 setter 추가
+(3) Gangsa 클래스의 데이터와 메소드 : id, name, subject / print(), 필요시엔 getter와 setter 추가
+(4) Staff 클래스의 데이터와 메소드 : id, name, department/print(), 필요시엔 getter와 setter 추가
+[실행화면]
+
+(ID)A01   (이름)나학생    (반)JAVA반
+(ID)A02   (이름)홍길동    (반)C++반
+(ID)S01   (이름)나직원    (부서)교무팀
+(ID)S02   (이름)나도요    (부서)취업지원팀
+(ID)G01   (이름)나선생    (과목)프로그래밍
+
+[제출파일]
+- Person.java
+- Student.java
+- Ganasa.java
+- Staff.java
+- Main.java
+- 실행화면.jpg또는 실행화면.png
+
+이해 하나도 못했으니 꼭 다시 해볼것.
+
+최상위 Person 
+그아래 Student, Gangsa, Staff 
+그 아래에 메인.
