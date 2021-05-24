@@ -1,0 +1,57 @@
+String
+indexof
+lastindexof
+trim
+replace
+
+정말 많이쓴다. 익혀놓도록합시다.
+
+
+boolean searchOk = false; // 전화번호 뒷자리 검색해서 검색이 된 경우 true, 
+
+if(!searchOk) {
+	System.out.println("입력하신 번호는 없는 번호입니다.");
+}
+
+
+자바에서는 print를 뿌렸는지 확인할 수 없기때문에 
+새로운 변수를 주고 print  를 뿌렸을 때 true로 바꿔준다.
+(for 문에 추가)
+
+
+String 의 문제점.
+JAVA 는 주소를 추출할 수 없다. (해시코드가 가능)
+
+변수가 자주바뀌는 경우가 많아 StringBuffer 와 StringBuilder 가 등장했다.
+
+※ StringBuilder 주요 기능(메소드)
+
+append(String str) : 문자열 str 추가
+insert(int index, String str) : 특정 index에 문자열 str 추가
+delete(int start, int end) : index위치 start부터 end앞 까지 삭제
+deleteCharAt(int index) : index위치의 특정 문자 하나 삭제
+int capacity() : 문자열 크기 반환
+ensureCapacity(int size) : 버퍼의 크기를 size만큼 늘리는 메소드
+trimToSize() : 과도한 버퍼 크기를 적당하게 줄이는 메소드
+
+
+
+
+https://www.epochconverter.com/clock
+
+밀리세컨 측정하는 사이트.
+
+StringTokenizer = 하나의 데이터를 정해진 분할자를 이용하여 구분한다.
+
+	String str = "가 나 다 라 마"
+	StringTokenizer token = new StringTokenizer(str);
+	String[] arr = new String[token.countTokens()];
+
+
+
+1$를 붙이면 변수 1개로 다 사용할 수 있다.
+System.out.printf("%1$tY년 %1$tm월 %1$td일 %1$tp %1$tl시 %1$tM분 %1$tS초", cal);
+
+
+
+

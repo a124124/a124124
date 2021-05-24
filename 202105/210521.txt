@@ -1,0 +1,18 @@
+싱글턴 패턴(Singleton pattern)이란 어떤 클래스의
+객체는 오직 하나인 유일한 객체를 만들어 여러가지
+상황에서 동일한 객체에 접근하기 위해 만들어진 패턴
+이다. 실제로 많이 쓰이는 유형이니 꼭 이해하자
+
+	private static AClass INSTANCE;
+	public static AClass getInstance() {
+		if (INSTANCE == null) {
+			INSTANCE = new AClass();
+		}
+		return INSTANCE;
+	}
+	private AClass() {
+		
+}
+
+
+JAVA 사전을 많이 봐야한다.
