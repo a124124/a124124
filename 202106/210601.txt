@@ -1,0 +1,90 @@
+ORACLE SQL Developer 시작
+-- 1. SQL 문장 작성법
+SELECT * FROM TAB;  -- 검색
+
+SQL 은 대소문자를 구분하지 않으나. 대부분 대문자로 작성한다
+
+주석은 -- 
+끝은 ;
+
+실행은 CTRL+ENTER
+
+
+SELECT EMPNO AS "사번", ENAME AS "이름", SAL AS "급여", JOB AS "직책" FROM EMP;
+
+
+중에 "와 AS 는 생략 가능하나
+
+중간에 빈공간이 필요할 경우 "로 덮어준다.
+
+"사 번" 같은경우
+
+
+SQL 은 다르다 기호가 많다.
+
+!= , <> , ^= 다 다르다를 의미한다.
+
+
+SELECT ENAME, SAL, SAL*12 연봉   -- 3.
+    FROM EMP                    -- 1.
+    WHERE SAL * 12 >= 24000     -- 2.  WHERE 절에는 필드의 별칭을 쓸 수 없다.
+    ORDER BY 연봉               -- 4.     ORDER 절에는 사용 가능
+
+
+
+
+NULL이 있는 데이터를 이용한 산술연산 결과는 NULL이다.
+
+NVL(COMM, 0)  < COMM이 NULL일때 0으로 대체하는 명령어
+
+ORDER BY  < 정렬
+
+
+--8 SQL 연산자        (BETWEEN, IN, LIKE, IS NULL) LIKE 는 정말 많이쓴다.
+
+
+
+
+SELECT * FROM EMP
+    WHERE ENAME LIKE 'M%';       -- % : 0글자 이상, _ : 한글자
+
+
+
+날짜 서식 변경
+
+ALTER SESSION SET NLS_DATE_FORMAT = 'RR-MM-DD';
+
+-- 문자를 날짜형으로 변환 : TO_DATE ('81/02/20', 'RR/MM/DD')
+
+WHERE HIREDATE BETWEEN TO_DATE('81/02/20','RR/MM/DD') AND TO_DATE('81/05/02','RR/MM/DD');
+
+--날짜형을 문자형으로 변환 : TO_CHAR(날짜형, 패턴)
+
+SELECT EMPNO, ENAME, HIREDATE, JOB, SAL 
+    FROM EMP
+    WHERE TO_CHAR(HIREDATE, 'RR') = 81;
+
+--INSERT INTO 
+
+INSERT INTO EMP VALUES (9999, 'LI%SA', NULL, NULL, NULL, 9000, 9900, 40);
+
+
+ROLLBACK; -- DML (데이터 조작어)를 취소하는 명령어
+
+
+
+
+-- EQUI JOIN (공통 필드의 DEPTNO값이 일치되는 조건만 JOIN)
+SELECT *
+    FROM EMP, DEPT
+    WHERE ENAME = 'SCOTT' AND EMP.DEPTNO = DEPT.DEPTNO;
+
+
+-- FROM 절에 별칭 사용 가능
+-- 테이블에 별칭이 있으면 그 별칭으로만 액서스를 할수있다.
+
+SELECT EMPNO NO, ENAME, E.DEPTNO, DNAME, LOC 
+    FROM EMP E, DEPT D
+    WHERE E.DEPTNO = D.DEPTNO
+    ORDER BY NO;
+

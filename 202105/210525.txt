@@ -1,0 +1,42 @@
+객체 복제 clone
+class 에 clone을 override 한다
+
+scanner.nextLine(); 
+버퍼를 지우기 위해 nextLine 을 한번더 입력해준다. nextLine이 맨 처음일경우 필요없다.
+
+
+Integer.parseInt();
+
+매우 많이 쓴다. 매개변수를 숫자로 바꾸는 명령어
+
+
+API 중 exception 이라는 예외처리들
+
+
+예외처리는 보험처리와 같은 느낌이다.
+예외가 발생할 수도 있는 부분을 try로 감싸준다.
+try {
+	System.out.println("i / j = " + (i / j));  // 예외가 발생 할수도 있고, 안할수도 있는 부분에 예외처리를 한다.
+}catch(ArithmeticException e){ 
+System.out.println(e.getMessage());  //예외 메세지 출력.
+}	
+
+이부분에서 ArithmeticException 을 Exception 으로 써도 무방할지도 모른다.
+
+
+do {
+	System.out.println("첫번째 수 입력 ");
+     	try {
+		
+		i = sc.nextInt();
+		break;
+		
+	}catch(InputMismatchException e) {
+		System.out.println("숫자를 다시 입력하세요");
+		sc.nextLine(); // 버퍼를 지우는 목적
+		}
+	}while(true);
+
+catch를 여러개 생성할 때는 큰 상속을 제일 아래로 둔다.
+
+catch(NumberFormatException e) 숫자 초기화 익셉션은 자주 본다.

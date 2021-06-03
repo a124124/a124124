@@ -1,0 +1,46 @@
+if(line == null)  // String의 파일 끝은 -1이 되는게 아니고 null이 된다.
+	break;
+
+
+PrintWriter 는 조금 특이해서 기본 Stream 으로 쓸수도있고 보조 Stream으로 쓸수도 있다.
+
+
+Date now = new Date();
+SimpleDateFormat sdf = new SimpleDateFormat("MMdd");
+String today = sdf.format(now);
+
+날짜를 비교할때 Date 하나 만들고 SDF 만들고
+String하나를 만들어서 sdf format을 string에 설정해줘야한다. 
+
+
+자바 GUI 
+컴퓨터 바탕화면에 각종 애플리케이션을 가리키는 바로 가기 아이콘들이 있습니다. 이런 아이콘들은 사용자가 더블클릭을 하면 해당 프로그램을 시작시켜주는 기능이 있습니다. JAVA GUI(Graphic User Interface)란 이런 아이콘처럼 사용자가 사용하기 편리하게 그래픽 요소를 가미하여 컴퓨터를 사용하기 쉽게 만들어 놓은 것입니다. 반대의 개념으로 CUI(Character User Interface)가 있습니다(cmd창을 생각하시면 됩니다).
+
+
+
+
+화면 구현하기위해 Frame을 상속받아야한다.
+
+
+
+add(btn1, BorderLayout.NORTH);  //BorderLayout 뒤에 방향을 꼭 정해줘야함.
+
+
+마지막에 
+
+setVisible(true);
+
+을 하지않으면 화면에 보이지않는다.
+
+
+dispose();  // 프레임 컴포넌트의 자원해제 ( 종료 )
+
+
+extends Frame implements ActionListener
+
+
+버튼 눌러서 움직이게하려면 ActionListener 를 implement 해야한다.
+
+
+txtPw.setEchoChar('*');   // 입력 시 *이 대신 출력됨.
+

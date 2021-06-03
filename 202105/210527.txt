@@ -1,0 +1,28 @@
+io (자바 파일 입출력)
+
+1. 파일을 연다(Stream 객체 생성) , 2. 데이터를 읽는다.(1byte 단위로 반복한다). 3. 파일을 닫는다.
+
+
+반드시 이해해야한다.
+
+
+
+OutputStream os = null;       //null을 항상 입력해줘야한다.
+try {
+	os = new FileOutputStream("txtFile/outTest.txt", true);     
+// true를 입력하 파일이 있으면 기존의 내용에 추가로 적는다.  (append)
+} catch (FileNotFoundException e) {
+	e.printStackTrace();
+}
+
+
+
+String str = "\n한글.\n 건강합니다";
+	byte[] bs = str.getBytes();  // String 을 byte 계열로 바꾸는 method
+
+
+
+
+os.write(bs, 0, readByteCount);   // 한번에 많은 양을 읽을경우 빈공간의 문제를 해결
+
+

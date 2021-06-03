@@ -1,0 +1,76 @@
+오라클은 문자, 숫자, DATE 타입밖에 없다.
+
+문자함수
+
+INSTR, SUBSTR, TRIM, LTRIM, RTRIM
+
+ -- SUBSTR(STR, 시작BYTE위치, 문자갯수) 첫번째 위치가 1
+
+
+근무 월수 구하는 함수
+
+MONTHS_BETWEEN() -- 두 날짜간 개월수를 계산하는 함수
+
+
+ADD_MONTHS() -- 특정 시점부터 몇개월 후를 계산하는 함수
+
+
+
+
+-- NEXT_DAY(특정날자, '수') 특정날짜로부터 처음 맞는 수요일
+
+
+--LAST_DAY(특정날짜) ; 특정날짜 달의 말일
+
+-- ROUND; 날짜 반올림 TRUNC ; 날짜 버림
+
+SELECT ROUND(SYSDATE, 'YEAR') -- 가까운 1월 1일
+    FROM DUAL;
+
+SELECT ROUND(SYSDATE, 'MONTH') -- 가까운 1일
+    FROM DUAL;
+    
+SELECT ROUND(SYSDATE, 'DAY') -- 가까운 일요일
+    FROM DUAL;
+    
+SELECT ROUND(SYSDATE)       -- 가까운 0시
+    FROM DUAL; 
+
+ -- YYYY 년도 RR 년도 MM 월 DD 일 
+    --DAY 요일 / DY 요일 요약표현
+    --AM PM HH12 HH24 MI SS
+
+
+
+
+-- 4 형변환 함수 TO_CHAR() 문자로 형변환// TO_DATE() DATE형으로 형변환
+-- 두가지밖에 없다.
+
+
+-- 그룹함수
+
+--모든 그룹함수는 NULL 값을 제외한다.
+
+-- 그룹함수 MAX, MIN, COUNT 는 숫자형, 문자형, 날짜형 모두 사용 가능
+
+
+
+-- 3. HAVING 절 ; 그룹 함수 결과의 조건
+
+
+SELECT DEPTNO, ROUND(AVG(SAL), 2) AVG_SAL
+    FROM EMP
+    HAVING AVG(SAL) >= 2000
+    GROUP BY DEPTNO
+    ORDER BY AVG_SAL DESC ; -- 필드의 별칭은 ORDER BY 절에서만 사용 가능
+    -- HAVING 은 별칭을 사용할 수 없음.
+
+
+-- 결과 집합 내 집계값 생성
+GROUP BY ROLLUP();
+
+
+SELECT DEPTNO, SUM(SAL)
+    FROM EMP
+    GROUP BY ROLLUP(DEPTNO);
+
