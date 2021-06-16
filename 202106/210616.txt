@@ -1,0 +1,47 @@
+비주얼 스튜디오 시작
+
+ctrl+shift+w  바로 실행
+
+<script src="2.js">
+
+    </script>
+
+한글이면 UTF로 변환해줘야 한다.
+메모장 - 저장 - 형식 UTF 8 
+
+태그는 열린태그가 있으면 닫힌태그도 있어야한다.
+<h1> 제목 태그
+<h6>까지 있다
+<p> 본문 태그
+<a> 클릭하면 해당 위치로 이동하는 태그
+&lt; <
+&gt; >
+&nbsp;  스페이스 1칸
+<tr> 한행
+<i> 이텔릭체
+<b>진하게
+<sup>윗첨자
+<sub>아래첨자
+<del>취소선
+<pre>그대로 나온다 <> 명령어 예외
+<span>
+
+아이디 앞에는 #을 붙여야한다
+<a href="#top">
+
+
+목록 태그
+
+(1) ul : 순서가 없는 목록 태그
+
+(2) ol : 순서가 있는 목록 태그
+<ol type="i"> , I, A, a 등등
+(3) li : 목록 요소
+
+
+<td colspan="2"> 행 병합
+<td rowspan="2"> 열 병합
+
+
+오디오 태그
+<audio controls="controls" src="0616_sound/stevejobs1.mp3" preload="auto" loop="loop" autoplay="autoplay"></audio>

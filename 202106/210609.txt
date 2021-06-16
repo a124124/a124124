@@ -1,0 +1,90 @@
+SELECT *
+    FROM USER_VIEWS; -- DDL을 수행하면 데이터 딕셔너리가 자동 수정
+
+
+--WITH CHECK OPTION 을 설정한 뷰는 조건에 해당되는 데이터만 삽입,수정,삭제 가능
+--WITH READ ONLY 를 설정한 뷰는 읽기전용
+
+
+	-- (1) 단일뷰
+
+
+CREATE OR REPLACE VIEW EMPv0
+    AS SELECT ENAME, JOB
+        FROM EMP;
+
+
+
+
+
+        -- (2) 복합뷰 ; 2개 이상의 테이블로 구성한 뷰, DML 문을 제한적으로만 사용
+
+CREATE OR REPLACE VIEW EMPV0
+    AS SELECT EMPNO, ENAME, JOB, DNAME
+    FROM DEPT D, EMP E
+    WHERE D.DEPTNO = E.DEPTNO;
+
+
+
+
+
+ -- DISTINCT 를 포함한 뷰는 읽기 전용
+
+
+
+
+    --TOP-N 구문 ( 조건대로 등수 정렬)
+    -- ROWNUM ; 테이블로부터 가져온 순서
+
+
+SELECT ROWNUM, ENAME 
+    FROM EMP
+    WHERE DEPTNO = 20;		-- DEPTNO 20인걸 확인한후 순서대로 가져옴
+
+
+
+
+    -- 함수를 이용한 RANK출력
+    
+SELECT RANK() OVER(ORDER BY SAL) RANK,
+    DENSE_RANK() OVER(ORDER BY SAL) D_RANK,
+    ROW_NUMBER() OVER(ORDER BY SAL) N_RANK,
+    ENAME, SAL
+    FROM EMP;
+
+
+
+    --TOP N
+    
+SELECT ENAME, SAL
+    FROM EMP
+    ORDER BY SAL;                    -- 1단계
+    
+SELECT ROWNUM RN, ENAME, SAL
+    FROM (SELECT ENAME, SAL
+                FROM EMP
+                ORDER BY SAL)
+    ORDER BY SAL;                   -- 2단계
+    
+
+SELECT ROWNUM, RN, ENAME, SAL
+    FROM (SELECT ROWNUM RN, ENAME, SAL
+            FROM (SELECT ENAME, SAL
+                        FROM EMP
+                        ORDER BY SAL)
+            ORDER BY SAL);              -- 3단계
+            
+            
+SELECT ROWNUM, RN, ENAME, SAL
+    FROM (SELECT ROWNUM RN, ENAME, SAL
+                FROM (SELECT *
+                        FROM EMP
+                        ORDER BY SAL))
+    WHERE RN BETWEEN 6 AND 10;          -- 완성
+
+
+
+
+
+
+	-- INDEX 시작

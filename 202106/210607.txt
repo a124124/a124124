@@ -1,0 +1,67 @@
+DML, DDL, DCL
+
+
+DDL = 테이블 생성, 테이블삭제, 테이블 구조변경
+DCL = 계정 생성, 사용자 권한 부여, 권한 박탈, 사용자 계정 삭제, 트랜젝션 명령어
+
+
+
+CREATE TABLE EMP05
+    AS
+    SELECT *
+        FROM EMP
+        WHERE 1 = 0;
+
+
+WHERE 조건에 반드시 거짓인 문장을 넣으면 구조만 복사가된다.
+
+1 = 0; 은 매우 많이 쓴다
+
+   -- 2. 테이블 구조 변경 (ALTER TABLE)
+
+ALTER TABLE EMP03
+    ADD (JOB VARCHAR2(20), SAL NUMBER(7, 2)); 
+
+-- 필드 추가하면 데이터는 기본적으로 NULL 이된다.
+
+
+   -- 필드 타입 수정 (MODIFY)
+
+
+ALTER TABLE EMP03
+    DROP COLUMN DEPTNO;      -- DEPTNO필드 삭제시 데이터까지 제거됨
+
+매우 위험하다
+
+
+
+SELECT *
+    FROM DEPT; -- 다른 테이블에서 참조하는 데이터가 있을경우 DROP 불가
+
+
+
+
+
+-- 논리적으로 특정필드를 접근하지 못하게 하는 명령어
+
+ALTER TABLE EMP03
+    SET UNUSED (COMM);
+
+UPDATE, DELETE 는 JOIN을 사용하지 못한다
+
+
+    --  1. PRIMARY KEY : 유일하게 테이블의 각 행을 식별하는 필드 (중복X)
+    
+    -- 2. NOT NULL : NULL 값을 포함하지 않음.
+    
+    -- 3. UNIQUE : 모든 행에 대해 유일함, NULL 값 가능
+    
+    -- 4. FOREIGN KEY : 테이블의 열은 다른 테이블의 열을 참조
+    
+    -- 5. CHECK(조건) : 해당 조건이 만족.
+    
+    -- 6. DEFAULT : 기본값 설정 (해당 열의 데이터 입력이 없으면 NULL)
+    
+
+ko.exerd.com
+

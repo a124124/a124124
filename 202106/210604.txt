@@ -1,0 +1,23 @@
+ -- [VI] SUB QUERY ; QUERY 안에 QUERY 가 내포
+ 
+ --1 . 서브 쿼리 개념
+
+
+
+SELECT ENAME, SAL
+    FROM EMP
+    WHERE SAL = (SELECT MAX(SAL) FROM EMP); -- 메인쿼리 (실행할 쿼리)
+
+
+보통 서브쿼리를 먼저 작성한뒤 메인쿼리를 작성한다.
+
+
+
+
+SELECT *
+    FROM EMP
+    WHERE (JOB, DEPTNO) = (SELECT JOB, DEPTNO 
+                 FROM EMP
+                 WHERE ENAME = 'SCOTT');        
+
+ -- 다중열 서브쿼리는 순서가 중요하다.

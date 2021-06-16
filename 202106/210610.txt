@@ -1,0 +1,88 @@
+MySQL
+
+
+-- Oracle 이랑 다른점
+-- DCL (계정 생성, 권한부여, 권한박탈, 계정삭제)
+-- DDL (제약조건, 시퀀스 X)
+-- DML (OUTER JOIN, AND &&, OR ||, 일부단일행함수)
+
+
+show databases;  -- database 들의 리스트
+
+
+show tables;           -- select * from tab; 과 똑같은것
+
+
+
+	MySQL 자료형
+
+Tinyint, smallint, int, integer, float(m,d), double,  char, varchar, BLOB, date, datetime, timestamp, time
+
+
+
+mCode int primary key auto_increment,  -- auto_increment 일 경우 int
+
+
+
+create table student(
+	sNo numeric(4),
+    sName varchar(20),
+    mCode int,
+    primary key(sNo),
+    foreign key(mCode)
+    references major(mCode)
+);
+
+제약조건을 밑에 넣어야함
+
+
+
+
+-- date_format 에서 포맷 글자 %y (년도 2자리)
+-- %y (년도 2자리) %Y 년도 4자리 %M 월이름 %m 1월,2월
+-- %b (짧은 월이름) %c 월 (1, 2)
+-- %e 일 (1,2,3) %d 일 (01,02,03)
+-- %H (24시간) %h (12시간) %p (오전 오후) %i분 %s초
+
+
+
+
+select format(pay, 0) from personal;	--  세자리마다 ,가 찍힌다
+select format(pay, 2) from personal;	--  세자리마다 ,가 찍힌다, 소수점 2자리
+
+
+
+	--현재 시간날짜
+select sysdate();
+select now();
+	-- 현재 날짜
+select current_date();
+select curdate();
+	-- 현재 시간
+select current_time();
+select curtime();
+
+	-- personal 이름, 급여, 급여가 3천이상인지 아닌지 여부
+	--  if 문 가능
+select pname, pay, if(pay >= 3000, '높다', '낮다') 
+	from personal;
+
+
+
+C:\oraclexe\app\oracle\product\11.2.0\server\jdbc\lib\ojdbc6.jar
+
+을
+
+C:\Program Files\Java\jre1.8.0_291\lib\ext
+로 옮긴다
+
+
+C:\Program Files (x86)\MySQL\Connector J 8.0\mysql-connector-java-8.0.25.jar
+
+을
+
+
+C:\Program Files\Java\jre1.8.0_291\lib\ext
+로 옮긴다
+
+
